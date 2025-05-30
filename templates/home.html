@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WillaZilla - Self-Care Platform</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo">WillaZilla</h1>
+        <div class="avatar"></div>
+    </header>
+
+    <main class="main-content">
+        <section class="welcome-message">
+            <p>Welcome to WillaZilla, your all-in-one platform for self-care and well-being. Our mission is to empower individuals to take charge of their mental and physical health by providing accessible, intuitive, and effective self-care tools.</p>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <a href="{{ url_for('pomodoro') }}">
+                        <div class="feature-icon">
+                           <img src="{{ url_for('static', filename='images/stopwatch.png') }}" alt="">
+                           <h3>Pomodoro</h3></a>
+                        </div>
+                
+            </div>
+
+            <div class="feature-card">              
+                <a href="{{ url_for('remeals') }}">
+                    <div class="feature-icon">
+                        <!-- <img src="images/dish.png" alt=""> --><img src="{{ url_for('static', filename='images/dish.png') }}" alt="">
+                     </div>
+                     <h3>Meals</h3></a>
+            </div>
+
+            <div class="feature-card"> 
+                <a href="{{ url_for('fitness') }}">
+                    <div class="feature-icon">
+                        <!-- <img src="images/arm-muscle.png" alt=""> --><img src="{{ url_for('static', filename='images/arm-muscle.png') }}" alt="">
+                    </div><h3>Fitness</h3></a>
+            </div>
+
+            <div class="feature-card">
+                <a href="{{ url_for('journal') }}">
+                    <div class="feature-icon">
+                        <!-- <img src="images/journal.png" alt=""> --><img src="{{ url_for('static', filename='images/journal.png') }}" alt="">
+                    </div><h3>Journals</h3></a>
+            </div>
+        </section>
+
+        <section class="content-wrapper">
+            <div class="motivation">
+                <h2>Be Healthy With Us! Use WillaZilla to grow yourself.</h2>
+            </div>
+
+            <!-- <div class="daily-tasks">
+                <h3>Daily Task</h3>
+                <div class="task-list">
+                    <div class="task-item">
+                        <input type="checkbox" id="task1" class="task-checkbox">
+                        <label for="task1">Drink 3 liters water</label>
+                    </div>
+                    <div class="task-item">
+                        <input type="checkbox" id="task2" class="task-checkbox">
+                        <label for="task2">Drink 3 liters water</label>
+                    </div>
+                    <div class="task-item">
+                        <input type="checkbox" id="task3" class="task-checkbox">
+                        <label for="task3">Drink 3 liters water</label>
+                    </div>
+                    <div class="task-item">
+                        <input type="checkbox" id="task4" class="task-checkbox">
+                        <label for="task4">Drink 3 liters water</label>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>For more information, contact us at our Instagram @WillaZilla</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+</html>

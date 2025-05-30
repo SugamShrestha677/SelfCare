@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReMeals - Healthy Food Recommendations</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/remeals.css') }}">
+    <style>
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="sidebar">
+        <div class="logo">WillaZilla</div>
+        <div class="nav-section">
+            <h2>Activity</h2>
+            <ul>
+                <li><a href="{{ url_for('pomodoro') }}" class="nav-link">Pomodoro</a></li>
+                <li><a href="{{ url_for('fitness') }}" class="nav-link">Fitness</a></li>
+                <li><a href="{{ url_for('remeals') }}" class="nav-link active">ReMeals</a></li>
+                <li><a href="{{ url_for('journal') }}" class="nav-link">Journals</a></li>
+                <!-- <li><a href="#" class="nav-link">Profile</a></li> -->
+                <li><a href="{{ url_for('aboutus') }}" class="nav-link">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+      <main class="main-content">
+        <header class="header">
+          <h1>ReMeals</h1>
+          <button class="streak-btn">★ Streaks</button>
+        </header>
+
+        <div class="content">
+          <h2>Make Your Healthy Tummy Yummy!</h2>
+
+          <div class="search-bar">
+            <input type="text" placeholder="Search for meals..." />
+            <button class="search-icon">🔍</button>
+          </div>
+
+          <!-- Form container with BMI ranges on the right -->
+          <div class="form-container">
+            <!-- Left side (form content) -->
+            <div class="form-content">
+              <h2>Calculate Your BMI</h2>
+              <small>*Required - Please complete these fields first</small>
+
+              <!-- Input fields -->
+              <div class="input-row">
+                <label for="height-ft">Height (ft):</label>
+                <input
+                  type="number"
+                  id="height-ft"
+                  name="height-ft"
+                  placeholder="ft"
+                  required
+                />
+
+                <label for="height-in">inches</label>
+                <input
+                  type="number"
+                  id="height-in"
+                  name="height-in"
+                  placeholder="in"
+                />
+
+                <label for="weight">Weight (kg):</label>
+                <input
+                  type="number"
+                  id="weight"
+                  name="weight"
+                  placeholder="kg"
+                  required
+                />
+              </div>
+
+              <!-- Calculate button on the next line -->
+              <button
+                type="button"
+                class="calculate-button"
+                onclick="calculateBMI()"
+              >
+                Calculate
+              </button>
+
+              <!-- Inline result -->
+              <div id="inline-bmi-result"></div>
+            </div>
+
+            <!-- Right side (BMI ranges) -->
+            <div class="bmi-info-box">
+              <h3>Your Body Mass Index Ranges</h3>
+              <!-- Vertically aligned ranges -->
+              <div class="bmi-ranges">
+                <div class="bmi-range">
+                  <h4>Underweight</h4>
+                  <p>&lt;18.5</p>
+                </div>
+                <div class="bmi-range">
+                  <h4>Healthy</h4>
+                  <p>18.5-24.9</p>
+                </div>
+                <div class="bmi-range">
+                  <h4>Overweight</h4>
+                  <p>25-29.9</p>
+                </div>
+                <div class="bmi-range">
+                  <h4>Obesity</h4>
+                  <p>30+</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Script to calculate BMI -->
+          <script>
+            function calculateBMI() {
+              let heightFt =
+                parseInt(document.getElementById("height-ft").value) || 0;
+              let heightIn =
+                parseInt(document.getElementById("height-in").value) || 0;
+              let weightKg =
+                parseFloat(document.getElementById("weight").value) || 0;
+
+              // Convert total height to meters
+              let totalHeightInches = heightFt * 12 + heightIn;
+              let totalHeightMeters = totalHeightInches * 0.0254; // Convert inches to meters
+
+              if (totalHeightMeters > 0 && weightKg > 0) {
+                // BMI formula
+                let bmi = weightKg / (totalHeightMeters * totalHeightMeters);
+                bmi = bmi.toFixed(1);
+
+                let category = "";
+                if (bmi < 18.5) {
+                  category = "Underweight";
+                } else if (bmi >= 18.5 && bmi <= 24.9) {
+                  category = "Healthy";
+                } else if (bmi >= 25 && bmi <= 29.9) {
+                  category = "Overweight";
+                } else {
+                  category = "Obesity";
+                }
+
+                document.getElementById(
+                  "inline-bmi-result"
+                ).innerText = `Your BMI: ${bmi} - ${category}`;
+              } else {
+                alert("Please enter valid height and weight!");
+              }
+            }
+          </script>
+        </div>
+        <!-- End of content -->
+      </main>
+      <!-- End of main-content -->
+    </div>
+    <!-- End of container -->
+
+    <!-- Include external script file if needed -->
+    <!-- Example external script -->
+    <!-- script src="./script.js"></script -->
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WillaZilla - Journal</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/journal.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+         <!-- Sidebar -->
+         <nav class="sidebar">
+            <div class="logo">WillaZilla</div>
+            <div class="nav-section">
+                <h2>Activity</h2>
+                <ul>
+                    <li><a href="{{ url_for('pomodoro') }}" class="nav-link">Pomodoro</a></li>
+                    <li><a href="{{ url_for('fitness') }}" class="nav-link ">Fitness</a></li>
+                    <li><a href="{{ url_for('remeals') }}" class="nav-link">ReMeals</a></li>
+                    <li><a href="{{ url_for('journal') }}" class="nav-link active">Journals</a></li>
+                    <!-- <li><a href="#" class="nav-link">Profile</a></li> -->
+                <li><a href="{{ url_for('aboutus') }}" class="nav-link">About Us</a></li>
+                </ul>
+            </div>
+            <div class="bottom-nav">
+                
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1>Journal</h1>
+                <button class="streaks-btn">⭐ Streaks</button>
+            </header>
+
+            <div class="journal-container">
+                <div class="journal-main">
+                    <div class="journal-entry">
+                        <h2>How Do I Feel Today?</h2>
+                        <textarea placeholder="Write a few sentences about your emotions" id="textBox"></textarea>
+
+                        <h2>What Went Well Today?</h2>
+                        <textarea placeholder="Celebrate small wins" id="textBox"></textarea>
+
+                        <h2>Did You Connect With Someone Today?</h2>
+                        <textarea placeholder="Write about your connections" id="textBox"></textarea>
+
+                        <h2>Plans For Tomorrow?</h2>
+                        <textarea placeholder="Plan your next day" id="textBox"></textarea>
+                    </div>
+                </div>
+
+                <div class="sidebar-widgets">
+                    <div class="widget date">
+                        <h3>Date</h3>
+                        <p id="current-date"></p>
+                    </div>
+
+                    <!-- <div class="widget gratitude">
+                        <h3>Gratitude List</h3>
+                        <p>3 things I'm thankful for today:</p>
+                        <ol>
+                            <li><input type="text" placeholder="1."></li>
+                            <li><input type="text" placeholder="2."></li>
+                            <li><input type="text" placeholder="3."></li>
+                        </ol>
+                    </div> -->
+
+                    <div class="widget tracker">
+                        <h3>Tracker</h3>
+                        <div class="tracker-item">
+                            <label>Did I drink enough water?</label>
+                            <select>
+                                <option value="">Yes/No</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="tracker-item">
+                            <label>Did I get enough sleep?</label>
+                            <input type="number" placeholder="Hours slept" min="0" max="24">
+                        </div>
+                        <div class="tracker-item">
+                            <label>Did I take breaks and relax?</label>
+                            <select>
+                                <option value="">Yes/No</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="tracker-item">
+                            <label>Did I work on a personal goal?</label>
+                            <input type="text" placeholder="What goal?">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/journal.js') }}"></script>
+</body>
+</html>

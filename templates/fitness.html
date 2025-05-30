@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WillaZilla - Fitness Guide</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fitness.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo">WillaZilla</div>
+            <div class="nav-section">
+                <h2>Activity</h2>
+                <ul>
+                    <li><a href="{{ url_for('pomodoro') }}" class="nav-link">Pomodoro</a></li>
+                    <li><a href="#" class="nav-link active">Fitness</a></li>
+                    <li><a href="{{ url_for('remeals') }}" class="nav-link">ReMeals</a></li>
+                    <li><a href="{{ url_for('journal') }}" class="nav-link">Journals</a></li>
+                    <!-- <li><a href="#" class="nav-link">Profile</a></li> -->
+                <li><a href="{{ url_for('aboutus') }}" class="nav-link">About Us</a></li>
+                </ul>
+            </div>
+            <div class="bottom-nav">
+                
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1>Fitness</h1>
+                <button class="streak-btn">Streaks</button>
+            </header>
+
+            <h2 class="section-title">Make Your Body Healthy!</h2>
+
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-image rpg-fitness">
+
+                    </div>
+                    <h3><a href="{{ url_for('rpg') }}">Guide to RPG Fitness</a></h3>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-image home-exercise"></div>
+                    <a href="{{ url_for('execise') }}"><h3>How To Make Exercise At Home Easier</h3></a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card-image fix-loneliness"></div>
+                    <a href="{{ url_for('loneliness') }}"><h3>How To Fix Loneliness</h3></a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card">
+                    <div class="card-image breathing"></div>
+                    <a href="{{ url_for('breathing') }}"><h3>How To Breathe Correctly</h3></a>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="card">
+                    <div class="card-image energy"></div>
+                    <a href="{{ url_for('energy') }}"><h3>How To Have More Energy</h3></a>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="card">
+                    <div class="card-image metabolism"></div>
+                    <a href="{{ url_for('metabolism') }}"><h3>How To Boost Metabolism</h3></a>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/fitness.js') }}"></script>
+</body>
+</html>

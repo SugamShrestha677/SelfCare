@@ -1,0 +1,231 @@
+:root {
+    --primary-color: #00ff9d;
+    --sidebar-bg: #2c3440;
+    --header-bg: #b8c6d3;
+    --text-color: #333;
+    --card-bg: #f5f5f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: var(--text-color);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    padding: 2rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    background-color: #1a1f25;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    display: inline-block;
+}
+
+.nav-section {
+    margin-bottom: 2rem;
+    
+}
+
+.nav-section h2 {
+    color: #666;
+    margin-bottom: 1rem;
+}
+nav ul{
+    list-style: none;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0;
+    margin: 0.5rem 0;
+    transition: color 0.3s;
+   
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+.bottom-nav {
+    margin-top: auto;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 2rem;
+}
+
+header {
+    background-color: var(--header-bg);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.streak-btn {
+    background-color: #ffd700;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.streak-btn:hover {
+    transform: scale(1.05);
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+.card a{
+    list-style: none;
+    text-decoration: none;
+    color: #323131;
+}
+
+.card-image {
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+.card h3 {
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Card Images */
+.rpg-fitness {
+    background-image:url('/static/images/rpg.jpg');
+
+}
+
+.home-exercise{
+    background-image:url('/static/images/exercise.jpg');
+}
+.fix-loneliness{
+    background-image:url('/static/images/loneliness.jpg');
+}
+.breathing{
+    background-image:url('/static/images/breathing.jpg');
+}
+.energy{
+    background-image:url('/static/images/energy.jpg');
+}
+.metabolism{
+    background-image:url('/static/images/metabolism.jpg');
+}
+
+/* Add similar background-image styles for other cards */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+        padding: 1rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+        padding: 0.25rem;
+    }
+
+    .nav-section h2,
+    .nav-link span {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .nav-section {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .bottom-nav {
+        display: flex;
+        justify-content: space-around;
+    }
+}

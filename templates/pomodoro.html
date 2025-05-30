@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomofocus</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/pomodoro.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fitness.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/remeals.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/journal.css') }}">
+  </head>
+  <body>
+
+    
+
+    <!-- POMODORO -->
+
+    <div class="container" id="pomodoro">
+      <!-- Sidebar -->
+      <nav class="sidebar">
+          <a href="{{ url_for('home') }}"><div class="logo">WillaZilla</div></a>
+          <div class="nav-section">
+              <h2>Activity</h2>
+              <ul>
+                  <li><a href="#" class="nav-link active">Pomodoro</a></li>
+                  <li><a href="#fitness" class="nav-link">Fitness</a></li>
+                  <li><a href="#remeals" class="nav-link">ReMeals</a></li>
+                  <li><a href="#journal" class="nav-link">Journals</a></li>
+                 
+                  <li><a href="{{ url_for('aboutus') }}" class="nav-link">About Us</a></li>
+              </ul>
+          </div>
+      </nav>
+      <main>
+        <header>
+          <h1>Pomofocus</h1>
+          <!-- <button id="streaks-btn">★ Streaks</button> -->
+        </header>
+        <div class="content">
+          <section class="timer">
+            <div class="timer-modes">
+              <button class="mode-btn active" data-mode="pomodoro"  style="background-color: #e57373; opacity: 100%; font-size:30px;">
+                Pomodoro
+              </button>
+              <button class="mode-btn" style="background-color: #64b5f6;  font-size:30px;" data-mode="rest">Rest</button>
+              <button class="mode-btn" style="background-color: #81c784;opacity: 100%; font-size:30px;" data-mode="long-rest">Long Rest</button>
+            </div>
+            <div class="timer-display" style="opacity: 100%; color: black;">00:00:00</div>
+            <button id="start-btn">Start</button>
+          </section>
+          <section class="todo-list">
+            <h2>To Do List</h2>
+            <ul id="tasks"></ul>
+            <button id="add-task-btn">+</button>
+          </section>
+          <section class="music-player">
+            <span>♪ Play Music</span>
+            <audio id="background-music"  src="{{ url_for('static', filename='audio/lofi.mp3') }}"> loop>
+          </audio>
+            <button id="play-music-btn">▶</button>
+          </section>
+          <!-- <img class="screenshot" src="Screenshot 2025-02-22 084335.png" alt="">
+          <img class="screenshot" src="The Pomodoro Technique for Procrastination (The Complete Guide).jpg" alt=""> -->
+        </div>
+      </main>
+    </div>
+
+    <div class="container" id="fitness">
+      <!-- Sidebar -->
+      <nav class="sidebar">
+          <div class="logo">WillaZilla</div>
+          <div class="nav-section">
+              <h2>Activity</h2>
+              <ul>
+                  <li><a href="#pomodoro" class="nav-link">Pomodoro</a></li>
+                  <li><a href="#" class="nav-link active">Fitness</a></li>
+                  <li><a href="#remeals" class="nav-link">ReMeals</a></li>
+                  <li><a href="#journal" class="nav-link">Journals</a></li>
+                  <!-- <li><a href="#" class="nav-link">Profile</a></li> -->
+              <li><a href="{{ url_for('aboutus') }}" class="nav-link">About Us</a></li>
+              </ul>
+          </div>
+          <div class="bottom-nav">
+              
+          </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="main-content">
+          <header>
+              <h1>Fitness</h1>
+              <button class="streak-btn">Streaks</button>
+          </header>
+
+          <h2 class="section-title">Make Your Body Healthy!</h2>
+
+          <div class="cards-grid">
+              <!-- Card 1 -->
+              <div class="card">
+                  <div class="card-image rpg-fitness">
+
+                  </div>
+                  <h3><a href="{{ url_for('rpg') }}">Guide to RPG Fitness</a></h3>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="card">
+                  <div class="card-image home-exercise"></div>
+                  <a href="{{ url_for('execise') }}"><h3>How To Make Exercise At Home Easier</h3></a>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="card">
+                  <div class="card-image fix-loneliness"></div>
+                  <a href="{{ url_for('loneliness') }}"><h3>How To Fix Loneliness</h3></a>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="card">
+                  <div class="card-image breathing"></div>
+                  <a href="{{ url_for('breathing') }}"><h3>How To Breathe Correctly</h3></a>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="card">
+                  <div class="card-image energy"></div>
+                  <a href="{{ url_for('energy') }}"><h3>How To Have More Energy</h3></a>
+              </div>
+
+              <!-- Card 6 -->
+              <div class="card">
+                  <div class="card-image metabolism"></div>
+                  <a href="{{ url_for('metabolism') }}"><h3>How To Boost Metabolism</h3></a>
+              </div>
+          </div>
+      </main>
+  </div>
+
+
+
+<!-- REMEALS -->
+
+
+
+  <div class="container" id="remeals">
+    <nav class="sidebar">
+      <div class="logo">WillaZilla</div>
+      <div class="nav-section">
+          <h2>Activity</h2>
+          <ul>
+              <li><a href="#pomodoro" class="nav-link">Pomodoro</a></li>
+              <li><a href="#fitness" class="nav-link">Fitness</a></li>
+              <li><a href="#remeals" class="nav-link active">ReMeals</a></li>
+              <li><a href="#journal" class="nav-link">Journals</a></li>
+              <!-- <li><a href="#" class="nav-link">Profile</a></li> -->
+              <li><a href="{{ url_for('aboutus') }}" class="nav-link">About Us</a></li>
+          </ul>
+      </div>
+  </nav>
+
+    <main class="main-content">
+      <header class="header">
+        <h1>ReMeals</h1>
+        <button class="streak-btn">★ Streaks</button>
+      </header>
+
+      <div class="content">
+        <h2>Make Your Healthy Tummy Yummy!</h2>
+
+        <div class="search-bar">
+          <input type="text" placeholder="Search for meals..." />
+          <button class="search-icon">🔍</button>
+        </div>
+
+        <!-- Form container with BMI ranges on the right -->
+        <div class="form-container">
+          <!-- Left side (form content) -->
+          <div class="form-content">
+            <h2>Calculate Your BMI</h2>
+            <small>*Required - Please complete these fields first</small>
+
+            <!-- Input fields -->
+            <div class="input-row">
+              <label for="height-ft">Height (ft):</label>
+              <input
+                type="number"
+                id="height-ft"
+                name="height-ft"
+                placeholder="ft"
+                required
+              />
+
+              <label for="height-in">inches</label>
+              <input
+                type="number"
+                id="height-in"
+                name="height-in"
+                placeholder="in"
+              />
+
+              <label for="weight">Weight (kg):</label>
+              <input
+                type="number"
+                id="weight"
+                name="weight"
+                placeholder="kg"
+                required
+              />
+            </div>
+
+            <!-- Calculate button on the next line -->
+            <button
+              type="button"
+              class="calculate-button"
+              onclick="calculateBMI()"
+            >
+              Calculate
+            </button>
+
+            <!-- Inline result -->
+            <div id="inline-bmi-result"></div>
+          </div>
+
+          <!-- Right side (BMI ranges) -->
+          <div class="bmi-info-box">
+            <h3>Your Body Mass Index Ranges</h3>
+            <!-- Vertically aligned ranges -->
+            <div class="bmi-ranges">
+              <div class="bmi-range">
+                <h4>Underweight</h4>
+                <p>&lt;18.5</p>
+              </div>
+              <div class="bmi-range">
+                <h4>Healthy</h4>
+                <p>18.5-24.9</p>
+              </div>
+              <div class="bmi-range">
+                <h4>Overweight</h4>
+                <p>25-29.9</p>
+              </div>
+              <div class="bmi-range">
+                <h4>Obesity</h4>
+                <p>30+</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Script to calculate BMI -->
+        <script>
+          function calculateBMI() {
+            let heightFt =
+              parseInt(document.getElementById("height-ft").value) || 0;
+            let heightIn =
+              parseInt(document.getElementById("height-in").value) || 0;
+            let weightKg =
+              parseFloat(document.getElementById("weight").value) || 0;
+
+            // Convert total height to meters
+            let totalHeightInches = heightFt * 12 + heightIn;
+            let totalHeightMeters = totalHeightInches * 0.0254; // Convert inches to meters
+
+            if (totalHeightMeters > 0 && weightKg > 0) {
+              // BMI formula
+              let bmi = weightKg / (totalHeightMeters * totalHeightMeters);
+              bmi = bmi.toFixed(1);
+
+              let category = "";
+              if (bmi < 18.5) {
+                category = "Underweight";
+              } else if (bmi >= 18.5 && bmi <= 24.9) {
+                category = "Healthy";
+              } else if (bmi >= 25 && bmi <= 29.9) {
+                category = "Overweight";
+              } else {
+                category = "Obesity";
+              }
+
+              document.getElementById(
+                "inline-bmi-result"
+              ).innerText = `Your BMI: ${bmi} - ${category}`;
+            } else {
+              alert("Please enter valid height and weight!");
+            }
+          }
+        </script>
+      </div>
+      <!-- End of content -->
+    </main>
+    <!-- End of main-content -->
+  </div>
+
+
+<!-- JOURNALS -->
+
+
+  <div class="container" id="journal">
+    <!-- Sidebar -->
+     <!-- Sidebar -->
+     <nav class="sidebar">
+        <div class="logo">WillaZilla</div>
+        <div class="nav-section">
+            <h2>Activity</h2>
+            <ul>
+                <li><a href="#pomodoro" class="nav-link">Pomodoro</a></li>
+                <li><a href="#fitness" class="nav-link ">Fitness</a></li>
+                <li><a href="#remeals" class="nav-link">ReMeals</a></li>
+                <li><a href="#journal" class="nav-link active">Journals</a></li>
+                <!-- <li><a href="#" class="nav-link">Profile</a></li> -->
+            <li><a href="{{ url_for('aboutus') }}" class="nav-link">About Us</a></li>
+            </ul>
+        </div>
+        <div class="bottom-nav">
+            
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header>
+            <h1>Journal</h1>
+            <button class="streaks-btn">⭐ Streaks</button>
+        </header>
+
+        <div class="journal-container">
+            <div class="journal-main">
+                <div class="journal-entry">
+                    <h2>How Do I Feel Today?</h2>
+                    <textarea placeholder="Write a few sentences about your emotions" id="textBox"></textarea>
+
+                    <h2>What Went Well Today?</h2>
+                    <textarea placeholder="Celebrate small wins" id="textBox"></textarea>
+
+                    <h2>Did You Connect With Someone Today?</h2>
+                    <textarea placeholder="Write about your connections" id="textBox"></textarea>
+
+                    <h2>Plans For Tomorrow?</h2>
+                    <textarea placeholder="Plan your next day" id="textBox"></textarea>
+                </div>
+            </div>
+
+            <div class="sidebar-widgets">
+                <div class="widget date">
+                    <h3>Date</h3>
+                    <p id="current-date"></p>
+                </div>
+
+                <!-- <div class="widget gratitude">
+                    <h3>Gratitude List</h3>
+                    <p>3 things I'm thankful for today:</p>
+                    <ol>
+                        <li><input type="text" placeholder="1."></li>
+                        <li><input type="text" placeholder="2."></li>
+                        <li><input type="text" placeholder="3."></li>
+                    </ol>
+                </div> -->
+
+                <div class="widget tracker">
+                    <h3>Tracker</h3>
+                    <div class="tracker-item">
+                        <label>Did I drink enough water?</label>
+                        <select>
+                            <option value="">Yes/No</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="tracker-item">
+                        <label>Did I get enough sleep?</label>
+                        <input type="number" placeholder="Hours slept" min="0" max="24">
+                    </div>
+                    <div class="tracker-item">
+                        <label>Did I take breaks and relax?</label>
+                        <select>
+                            <option value="">Yes/No</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="tracker-item">
+                        <label>Did I work on a personal goal?</label>
+                        <input type="text" placeholder="What goal?">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+  <script src="{{ url_for('static', filename='js/fitness.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pomodoro.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/journal.js') }}"></script>
+
+    <script>
+      function markTaskComplete(task) {
+        task.style.textDecoration = "line-through";
+        alert("Task Completed: " + task.innerText);
+      }
+
+      function notifyTimerEnd() {
+        if (Notification.permission === "granted") {
+          new Notification("Time's up! Take a break or start another session.");
+        } else if (Notification.permission !== "denied") {
+          Notification.requestPermission().then((permission) => {
+            if (permission === "granted") {
+              new Notification(
+                "Time's up! Take a break or start another session."
+              );
+            }
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
