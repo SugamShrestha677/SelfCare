@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, url_for, request, flash, ses
 from flask_sqlalchemy import SQLAlchemy
 import os
 import re
+import psycopg
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
