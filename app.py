@@ -14,8 +14,9 @@ PASSWORD = "sug@mramsund@r123"
 HOST = "localhost"
 
 # Configure Flask to use the database
-app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{USERNAME}:sug%40mramsund%40r123@{HOST}/{DB_NAME}'
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql+psycopg2://username:password@host:5432/dbname"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 
 db = SQLAlchemy(app)
 
