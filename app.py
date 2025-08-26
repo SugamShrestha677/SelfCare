@@ -20,7 +20,7 @@ if not database_url:
     raise RuntimeError("DATABASE_URL environment variable not set")
 
 # Make sure to use the psycopg3 scheme
-database_url = database_url.replace("postgres://", "postgresql+psycopg")
+database_url = database_url.replace("postgres://", "postgresql+psycopg://")
 app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
