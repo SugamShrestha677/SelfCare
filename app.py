@@ -1,6 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request, flash, session
 from flask_sqlalchemy import SQLAlchemy
-import pymysql
 import re
 from werkzeug.security import generate_password_hash, check_password_hash
 
